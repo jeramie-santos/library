@@ -39,7 +39,6 @@ mainContainer.appendChild(container);
 function displayBook(){
     
     if (initialize) {
-        console.log("1");
         for (let i = 0; i < myLibrary.length; i++){
             let card = document.createElement("div");
             let title = document.createElement("h2");
@@ -49,7 +48,9 @@ function displayBook(){
         
             card.className = "card";
             author.className = "author";
-        
+
+           
+
             title.textContent = myLibrary[i].title;
             author.textContent = myLibrary[i].author;
             pages.textContent = myLibrary[i].pages;
@@ -64,11 +65,10 @@ function displayBook(){
         }
     } else {
             const total = document.querySelectorAll(".card");
-            console.log(total);
-
             for (let i = 0; i < total.length; i++){
                 container.removeChild(total[i]);
             }
+
             for (let i = 0; i < myLibrary.length; i++){
                 let card = document.createElement("div");
                 let title = document.createElement("h2");
@@ -103,22 +103,31 @@ displayBook();
 
 
 
-const button = document.querySelector(".btn-submit");
-button.addEventListener("click", addBookToLibrary)
+const addForm = document.querySelector(".add-book");
+addForm.addEventListener("submit", addBookToLibrary)
 
 
 function addBookToLibrary(event) {
     initialize = false;
     event.preventDefault();
-
+    
     const bookTitle = document.querySelector("#book-title").value;
     const bookAuthor = document.querySelector("#book-author").value;
     const bookPage = document.querySelector("#book-page").value;
     const bookRead = document.querySelector("#book-read").value;
+    
+    // console.log(`${bookTitle} by ${bookAuthor}, ${bookPage} pages, ${bookRead}`);
 
-    console.log(`${bookTitle} by ${bookAuthor}, ${bookPage} pages, ${bookRead}`);
-    myLibrary.push(new Book(bookTitle, bookAuthor, bookPage,bookRead));
+    if (bookTitle == "" || bookAuthor == "" || bookPage == "" || bookRead == "") {
+            
+    } else {
+        myLibrary.push(new Book(bookTitle, bookAuthor, bookPage,bookRead));
+        addForm.reset();
+    }
+
+    
     displayBook();
+    
 }
 
 
