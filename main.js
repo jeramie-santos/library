@@ -5,7 +5,7 @@ const myLibrary = [
         title: "The Hobbit",
         author: "J.R.R Tolkien",
         pages: 295,
-        read: "not read yet"
+        read: "have not read yet"
     }, 
     {
         title: "Subtle art of not giving a f*ck",
@@ -31,10 +31,10 @@ function Book(title, author, pages, read) {
 
 
 
-const mainContainer = document.querySelector(".main-container");
+const main = document.querySelector("main");
 const container = document.createElement("div");
 container.setAttribute("class", "container");
-mainContainer.appendChild(container);
+main.appendChild(container);
 
 function displayBook(){
     
@@ -79,7 +79,7 @@ function displayBook(){
                 card.className = "card";
                 author.className = "author";
             
-                title.textContent = myLibrary[i].title;
+                title.textContent = myLibrary[i].title ;
                 author.textContent = myLibrary[i].author;
                 pages.textContent = myLibrary[i].pages;
                 read.textContent = myLibrary[i].read;
@@ -90,7 +90,7 @@ function displayBook(){
                 card.appendChild(read);
             
                 container.appendChild(card);
-                mainContainer.appendChild(container);
+                main.appendChild(container);
             }
             
     }
