@@ -1,3 +1,5 @@
+let initialize = true;
+
 const myLibrary = [
     {
         title: "The Hobbit",
@@ -19,41 +21,106 @@ const myLibrary = [
     },
 ];
 
-function Book() {
-
+function Book(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
 }
 
-function addBookToLibrary() {
 
-}
+
 
 const mainContainer = document.querySelector(".main-container");
-const content = document.createElement("div");
+const container = document.createElement("div");
+container.setAttribute("class", "container");
+mainContainer.appendChild(container);
 
-content.className = "content";
-mainContainer.appendChild(content);
+function displayBook(){
+    
+    if (initialize) {
+        console.log("1");
+        for (let i = 0; i < myLibrary.length; i++){
+            let card = document.createElement("div");
+            let title = document.createElement("h2");
+            let author = document.createElement("p");
+            let pages = document.createElement("p");
+            let read = document.createElement("p");
+        
+            card.className = "card";
+            author.className = "author";
+        
+            title.textContent = myLibrary[i].title;
+            author.textContent = myLibrary[i].author;
+            pages.textContent = myLibrary[i].pages;
+            read.textContent = myLibrary[i].read;
+        
+            card.appendChild(title);
+            card.appendChild(author);
+            card.appendChild(pages);
+            card.appendChild(read);
+        
+            container.appendChild(card);
+        }
+    } else {
+            const total = document.querySelectorAll(".card");
+            console.log(total);
 
-for (let i = 0; i < myLibrary.length; i++){
-    let card = document.createElement("div");
-    let title = document.createElement("h2");
-    let author = document.createElement("p");
-    let pages = document.createElement("p");
-    let read = document.createElement("p");
-
-    card.className = "card";
-    author.className = "author";
-
-    title.textContent = myLibrary[i].title;
-    author.textContent = myLibrary[i].author;
-    pages.textContent = myLibrary[i].pages;
-    read.textContent = myLibrary[i].read;
-
-    card.appendChild(title);
-    card.appendChild(author);
-    card.appendChild(pages);
-    card.appendChild(read);
-
-    content.appendChild(card);
+            for (let i = 0; i < total.length; i++){
+                container.removeChild(total[i]);
+            }
+            for (let i = 0; i < myLibrary.length; i++){
+                let card = document.createElement("div");
+                let title = document.createElement("h2");
+                let author = document.createElement("p");
+                let pages = document.createElement("p");
+                let read = document.createElement("p");
+            
+                card.className = "card";
+                author.className = "author";
+            
+                title.textContent = myLibrary[i].title;
+                author.textContent = myLibrary[i].author;
+                pages.textContent = myLibrary[i].pages;
+                read.textContent = myLibrary[i].read;
+            
+                card.appendChild(title);
+                card.appendChild(author);
+                card.appendChild(pages);
+                card.appendChild(read);
+            
+                container.appendChild(card);
+                mainContainer.appendChild(container);
+            }
+            
+    }
+    
 }
+
+displayBook();
+
+
+
+
+
+const button = document.querySelector(".btn-submit");
+button.addEventListener("click", addBookToLibrary)
+
+
+function addBookToLibrary(event) {
+    initialize = false;
+    event.preventDefault();
+
+    const bookTitle = document.querySelector("#book-title").value;
+    const bookAuthor = document.querySelector("#book-author").value;
+    const bookPage = document.querySelector("#book-page").value;
+    const bookRead = document.querySelector("#book-read").value;
+
+    console.log(`${bookTitle} by ${bookAuthor}, ${bookPage} pages, ${bookRead}`);
+    myLibrary.push(new Book(bookTitle, bookAuthor, bookPage,bookRead));
+    displayBook();
+}
+
+
 
 

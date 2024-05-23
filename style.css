@@ -13,7 +13,7 @@ html {
   height: 100vh;
 }
 
-.content {
+.container {
     display: grid;
     grid-template-columns: repeat(3, auto);
     gap: 1rem;
