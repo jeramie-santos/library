@@ -5,7 +5,7 @@ const myLibrary = [
         title: "The Hobbit",
         author: "J.R.R Tolkien",
         pages: 295,
-        read: "have not read yet"
+        read: "No"
     }, 
     {
         title: "Subtle art of not giving a f*ck",
