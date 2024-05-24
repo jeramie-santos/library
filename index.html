@@ -13,42 +13,50 @@
         <h1>Library</h1>
       </header>
       <main>
-        <form class="add-book">
-          <input
-            type="text"
-            name="book-title"
-            id="book-title"
-            placeholder="title"
-            required
-          />
-          <br />
-          <input
-            type="text"
-            name="book-author"
-            id="book-author"
-            placeholder="author"
-            required
-          />
-          <br />
-          <input
-            type="number"
-            name="book-page"
-            id="book-page"
-            placeholder="number of pages"
-            required
-          />
-          <br />
-          <select name="book-read" id="book-read">
-            <option value="" selected disabled hidden>
-              Have your read it?
-            </option>
-            <option value="Yes">Yes</option>
-            <option value="Currently Reading">Currently Reading</option>
-            <option value="No">No</option>
-          </select>
-          <br />
-          <button class="btn-submit" type="submit">submit</button>
-        </form>
+        <dialog>
+          <form class="add-book" method="dialog">
+            <input
+              type="text"
+              name="book-title"
+              id="book-title"
+              placeholder="title"
+              required
+            />
+            <br />
+            <input
+              type="text"
+              name="book-author"
+              id="book-author"
+              placeholder="author"
+              required
+            />
+            <br />
+            <input
+              type="number"
+              name="book-page"
+              id="book-page"
+              placeholder="number of pages"
+              required
+            />
+            <br />
+            <select name="book-read" id="book-read" required>
+              <option value="" selected disabled hidden>
+                Have your read it?
+              </option>
+              <option value="Yes">Yes</option>
+              <option value="Currently Reading">Currently Reading</option>
+              <option value="No">No</option>
+            </select>
+            <br />
+            <button class="btn-submit" type="submit" formmethod="dialog">
+              submit
+            </button>
+            <button class="btn-close" type="submit">close</button>
+          </form>
+        </dialog>
+        <div class="btn-add">
+          <button class="btn-open">Add book to the list</button>
+        </div>
       </main>
     </div>
   </body>

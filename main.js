@@ -29,8 +29,6 @@ function Book(title, author, pages, read) {
 }
 
 
-
-
 const main = document.querySelector("main");
 const container = document.createElement("div");
 container.setAttribute("class", "container");
@@ -123,12 +121,29 @@ function addBookToLibrary(event) {
     } else {
         myLibrary.push(new Book(bookTitle, bookAuthor, bookPage,bookRead));
         addForm.reset();
+        dialog.close();
     }
-
     
     displayBook();
     
 }
+
+
+const btnOpen = document.querySelector(".btn-open");
+const btnClose = document.querySelector(".btn-close");
+const dialog = document.querySelector("dialog");
+const btnSubmit = document.querySelector(".btn-submit");
+
+
+btnOpen.addEventListener("click", () => {
+    console.log("gumana");
+    dialog.showModal();
+});
+
+btnClose.addEventListener("click", () => {
+    dialog.close();
+});
+
 
 
 
