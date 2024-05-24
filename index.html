@@ -15,34 +15,18 @@
       <main>
         <dialog>
           <form class="add-book" method="dialog">
-            <input
-              type="text"
-              name="book-title"
-              id="book-title"
-              placeholder="title"
-              required
-            />
+            <label for="book-title">Title</label>
+            <input type="text" name="book-title" id="book-title" required />
             <br />
-            <input
-              type="text"
-              name="book-author"
-              id="book-author"
-              placeholder="author"
-              required
-            />
+            <label for="book-author">Author</label>
+            <input type="text" name="book-author" id="book-author" required />
             <br />
-            <input
-              type="number"
-              name="book-page"
-              id="book-page"
-              placeholder="number of pages"
-              required
-            />
+            <label for="book-page">Nubmer of Pages</label>
+            <input type="number" name="book-page" id="book-page" required />
             <br />
+            <label for="book-title">Reading status</label>
             <select name="book-read" id="book-read" required>
-              <option value="" selected disabled hidden>
-                Have your read it?
-              </option>
+              <option value="" selected disabled hidden>Select</option>
               <option value="Yes">Yes</option>
               <option value="Currently Reading">Currently Reading</option>
               <option value="No">No</option>
