@@ -5,19 +5,19 @@ const myLibrary = [
         title: "The Hobbit",
         author: "J.R.R Tolkien",
         pages: 295,
-        read: "No"
+        read: "Planning"
     }, 
     {
         title: "Subtle art of not giving a f*ck",
         author: "Mark Manson",
         pages: 206,
-        read: "yes"
+        read: "Finished"
     },
     {
         title: "Atomic Habits",
         author: "James Clear",
         pages: 380,
-        read: "currently"
+        read: "Currently Reading"
     },
 ];
 
@@ -39,6 +39,9 @@ function displayBook(){
     if (initialize) {
         for (let i = 0; i < myLibrary.length; i++){
             let card = document.createElement("div");
+            let titleContainer = document.createElement("div");
+            let infoContainer = document.createElement("div");
+
             let title = document.createElement("h2");
             let author = document.createElement("p");
             let pages = document.createElement("p");
@@ -46,18 +49,26 @@ function displayBook(){
         
             card.className = "card";
             author.className = "author";
+            titleContainer.className = "title-card";
+            infoContainer.className = "info-card";
+
 
            
 
             title.textContent = myLibrary[i].title;
-            author.textContent = myLibrary[i].author;
-            pages.textContent = myLibrary[i].pages;
-            read.textContent = myLibrary[i].read;
+            author.textContent = `by ${myLibrary[i].author}`;
+            pages.textContent = `Total pages: ${myLibrary[i].pages}`;
+            read.textContent = `Read Status:  ${myLibrary[i].read}`;
+
+            titleContainer.appendChild(title);
         
-            card.appendChild(title);
-            card.appendChild(author);
-            card.appendChild(pages);
-            card.appendChild(read);
+            
+            infoContainer.appendChild(author);
+            infoContainer.appendChild(pages);
+            infoContainer.appendChild(read);
+
+            card.appendChild(titleContainer);
+            card.appendChild(infoContainer);
         
             container.appendChild(card);
         }
@@ -69,6 +80,9 @@ function displayBook(){
 
             for (let i = 0; i < myLibrary.length; i++){
                 let card = document.createElement("div");
+                let titleContainer = document.createElement("div");
+                let infoContainer = document.createElement("div");
+
                 let title = document.createElement("h2");
                 let author = document.createElement("p");
                 let pages = document.createElement("p");
@@ -76,16 +90,25 @@ function displayBook(){
             
                 card.className = "card";
                 author.className = "author";
+                titleContainer.className = "title-card";
+                infoContainer.className = "info-card";
+
             
-                title.textContent = myLibrary[i].title ;
-                author.textContent = myLibrary[i].author;
-                pages.textContent = myLibrary[i].pages;
-                read.textContent = myLibrary[i].read;
+
+                title.textContent = myLibrary[i].title;
+                author.textContent = `by ${myLibrary[i].author}`;
+                pages.textContent = `Total pages: ${myLibrary[i].pages}`;
+                read.textContent = `Read Status ${myLibrary[i].read}`;
+
+                titleContainer.appendChild(title);
             
-                card.appendChild(title);
-                card.appendChild(author);
-                card.appendChild(pages);
-                card.appendChild(read);
+                
+                infoContainer.appendChild(author);
+                infoContainer.appendChild(pages);
+                infoContainer.appendChild(read);
+
+                card.appendChild(titleContainer);
+                card.appendChild(infoContainer);
             
                 container.appendChild(card);
                 main.appendChild(container);
@@ -133,6 +156,7 @@ const btnOpen = document.querySelector(".btn-open");
 const btnClose = document.querySelector(".btn-close");
 const dialog = document.querySelector("dialog");
 const btnSubmit = document.querySelector(".btn-submit");
+let close = false;
 
 
 btnOpen.addEventListener("click", () => {
@@ -141,7 +165,9 @@ btnOpen.addEventListener("click", () => {
 });
 
 btnClose.addEventListener("click", () => {
+    close = true;
     dialog.close();
+    addForm.reset();
 });
 
 
