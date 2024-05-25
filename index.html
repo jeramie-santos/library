@@ -21,8 +21,14 @@
             <label for="book-author">Author</label>
             <input type="text" name="book-author" id="book-author" required />
             <br />
-            <label for="book-page">Nubmer of Pages</label>
-            <input type="number" name="book-page" id="book-page" required />
+            <label for="book-page">Number of Pages</label>
+            <input
+              type="number"
+              name="book-page"
+              id="book-page"
+              required
+              min="1"
+            />
             <br />
             <label for="book-title">Reading status</label>
             <select name="book-read" id="book-read" required>
@@ -32,10 +38,12 @@
               <option value="Finished">Finished</option>
             </select>
             <br />
-            <button class="btn-submit" type="submit" formmethod="dialog">
-              submit
-            </button>
-            <button class="btn-close">close</button>
+            <div class="dialog-buttons">
+              <button class="btn-submit" type="submit" formmethod="dialog">
+                submit
+              </button>
+              <button class="btn-close">close</button>
+            </div>
           </form>
         </dialog>
         <div class="btn-add">

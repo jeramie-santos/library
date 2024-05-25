@@ -98,7 +98,7 @@ function displayBook(){
                 title.textContent = myLibrary[i].title;
                 author.textContent = `by ${myLibrary[i].author}`;
                 pages.textContent = `Total pages: ${myLibrary[i].pages}`;
-                read.textContent = `Read Status ${myLibrary[i].read}`;
+                read.textContent = `Read Status: ${myLibrary[i].read}`;
 
                 titleContainer.appendChild(title);
             
