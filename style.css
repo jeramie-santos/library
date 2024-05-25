@@ -108,7 +108,7 @@ dialog button {
 }
 
 
-.dialog-buttons .btn-close {
+.btn-close {
     background-color: white;
     color: var(--secondary-color);
     border: 2px solid var(--secondary-color);
@@ -129,4 +129,6 @@ dialog button {
     margin-bottom: 1rem;
     width: 100%;
     border-radius: .5rem;
+    border: 1px solid var(--secondary-color);
+    outline: none;
 }
