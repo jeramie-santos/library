@@ -160,7 +160,6 @@ let close = false;
 
 
 btnOpen.addEventListener("click", () => {
-    console.log("gumana");
     dialog.showModal();
 });
 
