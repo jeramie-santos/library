@@ -112,6 +112,7 @@ dialog {
 }
 
 .dialog-buttons {
+    margin-top: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
@@ -125,7 +126,6 @@ dialog {
 }
 
 .add-book label {
-    display: block;
     font-weight: 700;
 }
 
@@ -134,7 +134,9 @@ dialog {
     color: red;
 }
 
-.add-book input, select {
+.add-book input[type="number"],
+.add-book input[type="text"],
+select {
     padding: .5rem;
     margin-bottom: 1rem;
     width: 100%;
@@ -143,13 +145,8 @@ dialog {
     outline: none;
 }
 
-select:hover {
-    cursor: pointer;
-}
 
-select option {
-    font-size: 1rem;
-}
+
 
 
 

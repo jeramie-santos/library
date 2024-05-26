@@ -5,27 +5,27 @@ const myLibrary = [
         title: "The Hobbit",
         author: "J.R.R Tolkien",
         pages: 295,
-        read: "Planning"
+        isRead: "Yes"
     }, 
     {
         title: "Subtle art of not giving a f*ck",
         author: "Mark Manson",
         pages: 206,
-        read: "Finished"
+        isRead: "No"
     },
     {
         title: "Atomic Habits",
         author: "James Clear",
         pages: 380,
-        read: "Currently Reading"
+        isRead: "Yes"
     },
 ];
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, isRead) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
+    this.isRead = isRead;
 }
 
 
@@ -58,7 +58,7 @@ function displayBook(){
             title.textContent = myLibrary[i].title;
             author.textContent = `by ${myLibrary[i].author}`;
             pages.textContent = `Total pages: ${myLibrary[i].pages}`;
-            read.textContent = `Read Status:  ${myLibrary[i].read}`;
+            read.textContent = `Read Status:  ${myLibrary[i].isRead}`;
 
             titleContainer.appendChild(title);
         
@@ -93,12 +93,10 @@ function displayBook(){
                 titleContainer.className = "title-card";
                 infoContainer.className = "info-card";
 
-            
-
                 title.textContent = myLibrary[i].title;
                 author.textContent = `by ${myLibrary[i].author}`;
                 pages.textContent = `Total pages: ${myLibrary[i].pages}`;
-                read.textContent = `Read Status: ${myLibrary[i].read}`;
+                read.textContent = `Read Status: ${myLibrary[i].isRead}`;
 
                 titleContainer.appendChild(title);
             
@@ -135,14 +133,21 @@ function addBookToLibrary(event) {
     const bookTitle = document.querySelector("#book-title").value;
     const bookAuthor = document.querySelector("#book-author").value;
     const bookPage = document.querySelector("#book-page").value;
-    const bookRead = document.querySelector("#book-read").value;
+    const bookRead = document.querySelector("#book-read");
+    let isRead;
     
     // console.log(`${bookTitle} by ${bookAuthor}, ${bookPage} pages, ${bookRead}`);
 
-    if (bookTitle == "" || bookAuthor == "" || bookPage == "" || bookRead == "") {
+    if (bookRead.checked == true) {
+        isRead = "Yes";
+    } else {
+        isRead = "No";
+    }
+
+    if (bookTitle == "" || bookAuthor == "" || bookPage == "" || isRead == "") {
             
     } else {
-        myLibrary.push(new Book(bookTitle, bookAuthor, bookPage,bookRead));
+        myLibrary.push(new Book(bookTitle, bookAuthor, bookPage,isRead));
         addForm.reset();
         dialog.close();
     }
