@@ -102,6 +102,23 @@ button:hover {
     padding: 1rem;
 }
 
+.author::before {
+    content: "By ";
+}
+
+.pages::after {
+    content: " pages";
+}
+
+.is-read::before {
+    content: "Have read: ";
+}
+
+.is-read:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 
 
 ::backdrop {

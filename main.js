@@ -28,6 +28,10 @@ function Book(title, author, pages, isRead) {
     this.isRead = isRead;
 }
 
+Book.prototype.toggleReadStatus = function() {
+   return this.textContent = this.textContent == "Yes" ? "No" : "Yes";
+}
+
 const btnOpen = document.querySelector("header button");
 const btnClose = document.querySelector(".btn-close");
 const dialog = document.querySelector("dialog");
@@ -57,18 +61,30 @@ function displayBook(){
         let author = document.createElement("p");
         let pages = document.createElement("p");
         let read = document.createElement("p");
+       
     
         card.className = "card";
         author.className = "author";
         titleContainer.className = "title-card";
         infoContainer.className = "info-card";
+        author.className = "author";
+        pages.className = "pages";
+        read.className = "is-read";
 
         title.textContent = myLibrary[i].title;
-        author.textContent = `by ${myLibrary[i].author}`;
-        pages.textContent = `Total pages: ${myLibrary[i].pages}`;
-        read.textContent = `Read Status:  ${myLibrary[i].isRead}`;
+        author.textContent = myLibrary[i].author;
+        pages.textContent = myLibrary[i].pages;
+        read.textContent = myLibrary[i].isRead;
+      
+
+       Object.setPrototypeOf(myLibrary[i], Book);
+
+        read.addEventListener("click", () => {
+            read.textContent = myLibrary[i].prototype.toggleReadStatus();
+        })
 
         titleContainer.appendChild(title);
+       
     
         infoContainer.appendChild(author);
         infoContainer.appendChild(pages);
@@ -130,6 +146,14 @@ btnClose.addEventListener("click", () => {
     dialog.close();
     addForm.reset();
 });
+
+
+
+
+
+
+
+
 
 
 
