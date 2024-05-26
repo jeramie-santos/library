@@ -157,7 +157,7 @@ function addBookToLibrary(event) {
 }
 
 
-const btnOpen = document.querySelector(".btn-open");
+const btnOpen = document.querySelector("header button");
 const btnClose = document.querySelector(".btn-close");
 const dialog = document.querySelector("dialog");
 const btnSubmit = document.querySelector(".btn-submit");

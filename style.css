@@ -33,17 +33,24 @@ header {
     background-color: var(--secondary-color);
     color: white;
     z-index: 1;
+    justify-content: space-between;
 }
+
+.btn-add button {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-add button:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+
 
 main {
-    padding: 0 2rem 2rem;
-    display: grid;
-    grid-template-rows: 200px 1fr;
+    padding: 3rem;
     background-color: var(--primary-color); 
-}
-
-.btn-add {
-    place-self: center;
 }
 
 .container {
@@ -55,10 +62,6 @@ main {
     
 }
 
-input, button, select {
-    font-family: inherit;
-}
-
 button {
     font-weight: 700;
     padding: 1rem 1.5rem;
@@ -67,15 +70,18 @@ button {
     border: 1px solid var(--accent-color);
     border-radius: .5rem;
     text-transform: uppercase;
+    font-family: inherit;
 }
 
 button:hover {
     cursor: pointer;
 }
 
-.btn-submit:hover, .btn-open:hover {
+.btn-submit:hover {
     background-color: var(--secondary-color);
 }
+
+
 
 .card {
     width: 25rem;
@@ -96,6 +102,8 @@ button:hover {
     padding: 1rem;
 }
 
+
+
 ::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -111,13 +119,15 @@ dialog {
     width: 20%;
 }
 
+dialog div:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
 .dialog-buttons {
-    margin-top: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
-
 
 .btn-close {
     background-color: white;
@@ -129,20 +139,19 @@ dialog {
     font-weight: 700;
 }
 
-.add-book label::after {
+.add-book label:not(:last-child)::after {
     content: " *";
     color: red;
 }
 
 .add-book input[type="number"],
-.add-book input[type="text"],
-select {
+.add-book input[type="text"]{
     padding: .5rem;
-    margin-bottom: 1rem;
     width: 100%;
     border-radius: .5rem;
     border: 1px solid var(--secondary-color);
     outline: none;
+    font-family: inherit;
 }
 
 
