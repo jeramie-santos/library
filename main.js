@@ -29,7 +29,7 @@ function Book(title, author, pages, isRead) {
 }
 
 Book.prototype.toggleReadStatus = function() {
-   return this.textContent = this.textContent == "Yes" ? "No" : "Yes";
+    return this.textContent = this.textContent == "Yes" ? "No" : "Yes";
 }
 
 const btnOpen = document.querySelector("header button");
@@ -58,7 +58,7 @@ function displayBook(){
         let infoContainer = document.createElement("div");
 
         let title = document.createElement("h2");
-        let author = document.createElement("p");
+        let author = document.createElement("h3");
         let pages = document.createElement("p");
         let read = document.createElement("p");
        
@@ -76,12 +76,20 @@ function displayBook(){
         pages.textContent = myLibrary[i].pages;
         read.textContent = myLibrary[i].isRead;
       
-
-       Object.setPrototypeOf(myLibrary[i], Book);
+        Object.setPrototypeOf(myLibrary[i], Book);
 
         read.addEventListener("click", () => {
             read.textContent = myLibrary[i].prototype.toggleReadStatus();
+            if (read.textContent == "Yes") {
+                read.classList.remove("no-check");
+                read.classList.add("check")
+            } else if (read.textContent == "No") {
+                read.classList.add("no-check");
+                read.classList.remove("check")
+            }
         })
+
+        read.textContent == "Yes" ?  read.classList.add("check") :  read.classList.add("no-check")
 
         titleContainer.appendChild(title);
        
@@ -146,6 +154,8 @@ btnClose.addEventListener("click", () => {
     dialog.close();
     addForm.reset();
 });
+
+
 
 
 
