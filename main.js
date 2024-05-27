@@ -2,11 +2,11 @@ let initialize = true;
 
 const myLibrary = [
     {
-        title: "The Hobbit",
-        author: "J.R.R Tolkien",
-        pages: 295,
-        isRead: "No"
-    }, 
+        title: "Atomic Habits",
+        author: "James Clear",
+        pages: 380,
+        isRead: "Yes"
+    },
     {
         title: "Subtle art of not giving a f*ck",
         author: "Mark Manson",
@@ -14,11 +14,11 @@ const myLibrary = [
         isRead: "Yes"
     },
     {
-        title: "Atomic Habits",
-        author: "James Clear",
-        pages: 380,
-        isRead: "Yes"
-    },
+        title: "The Hobbit",
+        author: "J.R.R Tolkien",
+        pages: 295,
+        isRead: "No"
+    }, 
 ];
 
 function Book(title, author, pages, isRead) {
