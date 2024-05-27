@@ -80,7 +80,7 @@ function displayBook(){
 
         btnDel.textContent = "X";
         btnDel.addEventListener("click", function() {
-            deleteItem(myLibrary[i]);
+            deleteItem(i);
         });
       
         Object.setPrototypeOf(myLibrary[i], Book);
@@ -163,8 +163,10 @@ btnClose.addEventListener("click", () => {
     addForm.reset();
 });
 
-function deleteItem(selected){
-    console.log(selected);
+function deleteItem(index){
+    initialize = false;
+    myLibrary.splice(index, 1);
+    displayBook();
 }
 
 
