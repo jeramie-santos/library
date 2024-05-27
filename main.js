@@ -61,6 +61,7 @@ function displayBook(){
         let author = document.createElement("h3");
         let pages = document.createElement("p");
         let read = document.createElement("p");
+        let btnDel = document.createElement("button");
        
     
         card.className = "card";
@@ -70,11 +71,17 @@ function displayBook(){
         author.className = "author";
         pages.className = "pages";
         read.className = "is-read";
+        btnDel.className = "btn-delete";
 
         title.textContent = myLibrary[i].title;
         author.textContent = myLibrary[i].author;
         pages.textContent = myLibrary[i].pages;
         read.textContent = myLibrary[i].isRead;
+
+        btnDel.textContent = "X";
+        btnDel.addEventListener("click", function() {
+            deleteItem(myLibrary[i]);
+        });
       
         Object.setPrototypeOf(myLibrary[i], Book);
 
@@ -92,6 +99,7 @@ function displayBook(){
         read.textContent == "Yes" ?  read.classList.add("check") :  read.classList.add("no-check")
 
         titleContainer.appendChild(title);
+        titleContainer.appendChild(btnDel);
        
     
         infoContainer.appendChild(author);
@@ -154,6 +162,10 @@ btnClose.addEventListener("click", () => {
     dialog.close();
     addForm.reset();
 });
+
+function deleteItem(selected){
+    console.log(selected);
+}
 
 
 

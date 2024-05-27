@@ -101,10 +101,17 @@ button:hover {
 }
 
 .title-card {
+    display: grid;
+    grid-template-columns: auto 3rem;
     background-color: var(--accent-color);
     color: var(--primary-color);
     border-radius: 1rem 1rem 0 0;
     padding: 1rem 2rem;
+}
+
+.title-card button {
+    padding: .5rem 1rem;
+    border: 1px solid white;
 }
 
 .title-card h2 {
