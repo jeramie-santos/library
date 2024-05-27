@@ -29,7 +29,8 @@ function Book(title, author, pages, isRead) {
 }
 
 Book.prototype.toggleReadStatus = function() {
-    return this.textContent = this.textContent == "Yes" ? "No" : "Yes";
+    this.isRead = this.isRead === "Yes" ? "No" : "Yes";
+    return this.isRead;
 }
 
 const btnOpen = document.querySelector("header button");
@@ -84,10 +85,11 @@ function displayBook(){
             deleteItem(i);
         });
       
-        Object.setPrototypeOf(myLibrary[i], Book);
+        Object.setPrototypeOf(myLibrary[i], Book.prototype);
 
         read.addEventListener("click", () => {
-            read.textContent = myLibrary[i].prototype.toggleReadStatus();
+            myLibrary[i].toggleReadStatus();
+            read.textContent = myLibrary[i].isRead;
             if (read.textContent == "Yes") {
                 read.classList.remove("no-check");
                 read.classList.add("check");
@@ -144,13 +146,11 @@ function addBookToLibrary(event) {
         isRead = "No";
     }
 
-    if (bookTitle == "" || bookAuthor == "" || bookPage == "" || isRead == "") {
-            
-    } else {
+    if (bookTitle != "" && bookAuthor != "" && bookPage != "" && isRead != "") {
         myLibrary.push(new Book(bookTitle, bookAuthor, bookPage,isRead));
         addForm.reset();
         dialog.close();
-    }
+    } 
     
     displayBook();
     
