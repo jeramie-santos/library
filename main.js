@@ -60,7 +60,8 @@ function displayBook(){
         let title = document.createElement("h2");
         let author = document.createElement("h3");
         let pages = document.createElement("p");
-        let read = document.createElement("p");
+        let readLabel = document.createElement("p")
+        let read = document.createElement("button");
         let btnDel = document.createElement("button");
        
     
@@ -74,10 +75,10 @@ function displayBook(){
         btnDel.className = "btn-delete";
 
         title.textContent = myLibrary[i].title;
-        author.textContent = myLibrary[i].author;
-        pages.textContent = myLibrary[i].pages;
+        author.textContent ="by " + myLibrary[i].author;
+        pages.textContent ="Total pages: " + myLibrary[i].pages;
         read.textContent = myLibrary[i].isRead;
-
+        readLabel.textContent = "Have read: "
         btnDel.textContent = "X";
         btnDel.addEventListener("click", function() {
             deleteItem(i);
@@ -89,10 +90,10 @@ function displayBook(){
             read.textContent = myLibrary[i].prototype.toggleReadStatus();
             if (read.textContent == "Yes") {
                 read.classList.remove("no-check");
-                read.classList.add("check")
+                read.classList.add("check");
             } else if (read.textContent == "No") {
                 read.classList.add("no-check");
-                read.classList.remove("check")
+                read.classList.remove("check");
             }
         })
 
@@ -100,11 +101,13 @@ function displayBook(){
 
         titleContainer.appendChild(title);
         titleContainer.appendChild(btnDel);
+
+        readLabel.appendChild(read);
        
     
         infoContainer.appendChild(author);
         infoContainer.appendChild(pages);
-        infoContainer.appendChild(read);
+        infoContainer.appendChild(readLabel);
 
         card.appendChild(titleContainer);
         card.appendChild(infoContainer);

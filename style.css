@@ -130,29 +130,23 @@ button:hover {
     gap: 1rem;
 }
 
-.author::before {
-    content: "by ";
-}
-
-.pages::after {
-    content: " pages";
-}
-
-.is-read::before {
-    content: "Have read: ";
-}
-
-.is-read:hover {
-    cursor: pointer;
-    text-decoration: underline;
+.is-read {
+    font-weight: 500;
+    padding: .5rem 1rem;
 }
 
 .check {
-    color: darkgreen;
+    background-color: darkgreen;
+    border-radius: .3rem;
+    border: none;
+    color: var(--light-color);
 }
 
 .no-check {
-    color: red;
+    background-color: red;
+    border-radius: .3rem;
+    border: none;
+    color: var(--light-color);
 }
 
 
